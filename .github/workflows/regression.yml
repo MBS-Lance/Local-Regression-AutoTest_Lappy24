@@ -17,7 +17,9 @@ jobs:
       - name: Checkout Repository Code
         # This downloads your repository code onto your local runner machine
         uses: actions/checkout@v4
-        
+      - name: Open Calculator (Example Command)
+        run: |
+          calc.exe
       - name: Print a Message and Trigger Test Script
         # These are the commands that run on your local PC
         run: |
