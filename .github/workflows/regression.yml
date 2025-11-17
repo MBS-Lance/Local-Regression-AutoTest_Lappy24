@@ -1,0 +1,32 @@
+name: Trigger Local Regression
+
+on:
+  push:
+    branches:
+      - main
+  # This allows you to manually trigger the test from the GitHub website
+  workflow_dispatch:
+
+jobs:
+  # This is the name of the job
+  regression_job:
+    # 🚨 THIS IS THE KEY PART! It must match the label you used in Step 4.
+    runs-on: local-regression 
+    
+    steps:
+      - name: Checkout Repository Code
+        # This downloads your repository code onto your local runner machine
+        uses: actions/checkout@v4
+        
+      - name: Print a Message and Trigger Test Script
+        # These are the commands that run on your local PC
+        run: |
+          echo "Starting the simulated regression test on the local PC!"
+          # Replace the line below with your actual regression test command
+          # Example: ./your_test_script.sh
+          # For now, we will just create a simple file as proof it ran:
+          echo "Test complete at $(date)" > local_test_result.txt
+          
+      - name: Show the test result file contents (Proof it ran!)
+        # This step shows the output of the previous step
+        run: cat local_test_result.txt
