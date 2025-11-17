@@ -11,7 +11,7 @@ jobs:
   # This is the name of the job
   regression_job:
     # 🚨 THIS IS THE KEY PART! It must match the label you used in Step 4.
-    runs-on: local-regression 
+    runs-on: self-hosted
     
     steps:
       - name: Checkout Repository Code
